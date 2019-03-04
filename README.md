@@ -16,7 +16,7 @@ cd jsonql && npm install
 
 Quick example: 
 ```typescript
-import { JsonQLServer, JSONQLType, Field } from "./src";
+import { JsonQLServer, Type, Field } from "./src";
 
 
 class Company {
