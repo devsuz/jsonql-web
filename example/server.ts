@@ -1,12 +1,12 @@
 import "reflect-metadata";
-import { JsonQLServer, JSONQLType, Field } from "../src";
+import { JsonQLServer, Type, Field } from "../src";
 
 
 class Company {
-    @Field() name
+    @Field() name: string;
 }
 
-@JSONQLType
+@Type
 class User {
     @Field() a: number;
     @Field() b: string;

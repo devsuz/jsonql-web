@@ -1,12 +1,10 @@
 import express = require('express');
 import { Request, Response } from "express";
 const bodyParser = require('body-parser');
-const Store = require('data-store');
 
 import { JSONQLBody } from "../types/body";
 import { typeStore } from '../store';
 
-const store = new Store({ path: '../types.json' });
 
 // JsonRPC server like a GraphQL
 export class JsonQLServer {
@@ -32,7 +30,7 @@ export class JsonQLServer {
                 .then(result => res.json(this.setFields(body.fields, result)))
                 .catch(error => res.json({ message: error.message }));
         });
-        this.app.get('/methods', (req: Request, res: Response) => res.json(typeStore.data));
+        this.app.get('/types', (req: Request, res: Response) => res.json(typeStore.data));
     }
 
     listen(port: number) {
